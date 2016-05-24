@@ -1,4 +1,4 @@
-### basic-project
+# basic-project
 
 *Showcase basic project*
 
