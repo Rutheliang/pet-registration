@@ -36,12 +36,20 @@ public class PetRegistration {
 		displayPetDetails();
 		exitApplication();
 
+		// char [] myLettersA;
+		// myLetters = new char [5]
+
 	}
 
 	private static void displayPetDetails() {
 		System.out.println("\nPet Details");
 		System.out.println("-------------------------------");
 		System.out.println("Name: + petName");
+		System.out.println("XXXXX");
+		System.out.println("XXXXX");
+		System.out.println("XXXXX");
+		System.out.println("XXXXX");
+		System.out.println("XXXXX");
 	}
 
 	private static void exitApplication() {
