@@ -27,12 +27,15 @@ import java.util.*;
 public class PetRegistration {
 	static String name;
 	static Scanner scanner;
-	static String petName, petAddress, petCity, petState, petRegPrice, petDOB;
+	static String[] petNames, petAddresses, petCities, petStates, petRegPrices, petDOBs;
+	static int petCount;
 
-	public static void registerPet() {
+	public static void registerPets() {
 		initApplication();
 		retrieveUserName();
-		retrievePetDetails();
+		displayNumberOfDetails();
+		initPetDetailArrays();
+		retrieveAllPetDetails();
 		displayPetDetails();
 		exitApplication();
 
@@ -41,15 +44,23 @@ public class PetRegistration {
 
 	}
 
+	/**
+	 * 
+	 */
+
 	private static void displayPetDetails() {
+		displayPetDetails();
+	}
+
+	private static void displayPetDetails(int petIndex) {
 		System.out.println("\nPet Details");
 		System.out.println("-------------------------------");
-		System.out.println("Name: + petName");
-		System.out.println("XXXXX");
-		System.out.println("XXXXX");
-		System.out.println("XXXXX");
-		System.out.println("XXXXX");
-		System.out.println("XXXXX");
+		System.out.println("Name: + petNames(petIndex)");
+		System.out.println("XXXXX(petIndex)");
+		System.out.println("XXXXX(petIndex)");
+		System.out.println("XXXXX(petIndex)");
+		System.out.println("XXXXX(petIndex)");
+		System.out.println("XXXXX(petIndex)");
 	}
 
 	private static void exitApplication() {
@@ -62,20 +73,44 @@ public class PetRegistration {
 		System.out.println("Welcome to the Pet Registration Application");
 	}
 
-	private static String obtainString(String question) {
-		String input;
-		System.out.print(question);
-		input = scanner.nextLine();
-		return input;
+	private static void initPetDetailArrays() {
+		petNames = new String[petCount];
+		petAddresses = new String[petCount];
 	}
 
-	private static void retrievePetDetails() {
-		petName = obtainString("What is your pets name:");
-		petAddress = obtainString("What is you address:");
-		petCity = obtainString("XXXX");
-		petState = obtainString("XXXX");
-		petRegPrice = obtainString("XXXX");
-		petDOB = obtainString("XXXX");
+	private static int obtainString(String question) {
+		boolean validData = false;
+		String input;
+		int value = 0;
+		while (!validData) {
+			System.out.print(question);
+			input = scanner.nextLine();
+			value = Integer.parseInt(input);
+			validData = true;
+		} catch (NumberFormatException e) {
+			System.out.print("You must supply a valid number character. (" + input + ")");
+		}
+			return input;
+	}
+
+	private static void retrieveNumberOfPets() {
+		petCount = obtainInt("How many pets would you like to register?");
+	}
+
+	/**
+	 * 
+	 */
+	private static void retrieveAllPetDetails() {
+		retrievePetDetails(2);
+	}
+
+	private static void retrievePetDetails(int pet index) {
+		petNames = obtainString("What is your pets name:");
+		petAddresses = obtainString("What is you address:");
+		petCities = obtainString("XXXX");
+		petStates = obtainString("XXXX");
+		petRegPrices = obtainString("XXXX");
+		petDOBs = obtainString("XXXX");
 	}
 
 	private static void retrieveUserName() {
